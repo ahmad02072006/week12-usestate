@@ -1,0 +1,246 @@
+.app-shell {
+  display: grid;
+  width: min(100% - 32px, 520px);
+  margin: 0 auto;
+  padding: 48px 0;
+  gap: 20px;
+}
+
+.exercise-card {
+  width: 100%;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.exercise-card h2 {
+  margin: 0 0 18px;
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+.button {
+  min-height: 42px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 11px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.button:active,
+.score-button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.button-primary {
+  color: #fff;
+  background: var(--indigo);
+  box-shadow: 0 5px 12px rgba(89, 86, 233, 0.2);
+}
+
+.button-primary:hover {
+  background: var(--indigo-hover);
+}
+
+.toggle-detail {
+  margin: 18px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+  animation: detail-fade-in 300ms ease both;
+}
+
+@keyframes detail-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+}
+
+.text-input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  color: var(--text);
+  background: var(--surface);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.text-input::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.text-input:focus {
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px rgba(89, 86, 233, 0.12);
+  outline: none;
+}
+
+.empty-state {
+  margin: 20px 0 0;
+  padding: 18px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.task-list {
+  display: grid;
+  margin: 16px 0 0;
+  padding: 0;
+  gap: 9px;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 8px 7px 14px;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  overflow-wrap: anywhere;
+}
+
+.task-remove {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.task-remove:hover {
+  color: #fff;
+  background: #e45460;
+}
+
+.players {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.player-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-soft);
+}
+
+.player-card h3 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.player-score {
+  margin: 8px 0 14px;
+  color: var(--text);
+  font-size: 2.5rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-controls {
+  display: flex;
+  gap: 9px;
+}
+
+.score-button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--indigo);
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.score-button:hover {
+  border-color: var(--indigo);
+  color: #fff;
+  background: var(--indigo);
+}
+
+.total-badge {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  margin: 18px auto 0;
+  padding: 9px 14px;
+  gap: 10px;
+  border: 1px solid rgba(89, 86, 233, 0.18);
+  border-radius: 999px;
+  color: var(--indigo);
+  background: var(--indigo-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.total-badge strong {
+  color: var(--text);
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 420px) {
+  .app-shell {
+    width: min(100% - 24px, 520px);
+    padding: 24px 0;
+    gap: 14px;
+  }
+
+  .exercise-card {
+    padding: 20px;
+  }
+
+  .task-form {
+    gap: 8px;
+  }
+
+  .task-form .button {
+    padding-inline: 14px;
+  }
+}
